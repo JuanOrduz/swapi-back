@@ -43,11 +43,56 @@ class People(TimeStampedModel, SimpleNameModel):
         (NA, "N/A"),
     )
 
+    BLACK = "Black"
+    BROWN = "Brown"
+    BLONDE = "Blonde"
+    RED = "Red"
+    WHITE = "White"
+    GREY = "Grey"
+    AUBURN = "Auburn"
+    BALD = "Bald"
+    YELLOW = "Yellow"
+    BLUE = "Blue"
+    ORANGE = "Orange"
+    HAZEL = "Hazel"
+    PINK = "Pink"
+    GOLD = "Gold"
+    GREEN = "Green"
+    PURPLE = "Purple"
+    UNKNOWN = "Unknown"
+
+    HAIR_COLOR = (
+        (BLACK, "black"),
+        (BROWN, "brown"),
+        (BLONDE, "blonde"),
+        (RED, "red"),
+        (WHITE, "white"),
+        (GREY, "grey"),
+        (AUBURN, "auburn"),
+        (BALD, "bald"),
+        (UNKNOWN, "unknown"),
+    )
+
+    EYE_COLOR = (
+        (BLACK, "black"),
+        (BROWN, "brown"),
+        (YELLOW, "yellow"),
+        (BLUE, "blue"),
+        (RED, "red"),
+        (GREEN, "green"),
+        (ORANGE, "orange"),
+        (HAZEL, "hazel"),
+        (PINK, "pink"),
+        (GOLD, "gold"),
+        (PURPLE, "purple"),
+        (UNKNOWN, "unknown"),
+    )
+
     height = models.CharField(max_length=16, blank=True)
     mass = models.CharField(max_length=16, blank=True)
-    hair_color = models.CharField(max_length=32, blank=True)
+    hair_color = models.CharField(max_length=32, choices=HAIR_COLOR, default=UNKNOWN)
     skin_color = models.CharField(max_length=32, blank=True)
-    eye_color = models.CharField(max_length=32, blank=True)
+    eye_color = models.CharField(max_length=32, choices=EYE_COLOR, default=UNKNOWN)
     birth_year = models.CharField(max_length=16, blank=True)
     gender = models.CharField(max_length=64, choices=GENDER)
     home_world = models.ForeignKey(
