@@ -43,49 +43,50 @@ class People(TimeStampedModel, SimpleNameModel):
         (NA, "N/A"),
     )
 
-    BLACK = "Black"
-    BROWN = "Brown"
-    BLONDE = "Blonde"
-    RED = "Red"
-    WHITE = "White"
-    GREY = "Grey"
-    AUBURN = "Auburn"
-    BALD = "Bald"
-    YELLOW = "Yellow"
-    BLUE = "Blue"
-    ORANGE = "Orange"
-    HAZEL = "Hazel"
-    PINK = "Pink"
-    GOLD = "Gold"
-    GREEN = "Green"
-    PURPLE = "Purple"
-    UNKNOWN = "Unknown"
+    BLACK = "black"
+    BROWN = "brown"
+    BLONDE = "blonde"
+    RED = "red"
+    WHITE = "white"
+    GREY = "grey"
+    AUBURN = "auburn"
+    BALD = "bald"
+    YELLOW = "yellow"
+    BLUE = "blue"
+    ORANGE = "orange"
+    HAZEL = "hazel"
+    PINK = "pink"
+    GOLD = "gold"
+    GREEN = "green"
+    PURPLE = "purple"
+    UNKNOWN = "unknown"
 
     HAIR_COLOR = (
-        (BLACK, "black"),
-        (BROWN, "brown"),
-        (BLONDE, "blonde"),
-        (RED, "red"),
-        (WHITE, "white"),
-        (GREY, "grey"),
-        (AUBURN, "auburn"),
-        (BALD, "bald"),
-        (UNKNOWN, "unknown"),
+        (BLACK, "Black"),
+        (BROWN, "Brown"),
+        (BLONDE, "Blonde"),
+        (RED, "Red"),
+        (WHITE, "White"),
+        (GREY, "Grey"),
+        (AUBURN, "Auburn"),
+        (BALD, "Bald"),
+        (UNKNOWN, "Unknown"),
     )
 
     EYE_COLOR = (
-        (BLACK, "black"),
-        (BROWN, "brown"),
-        (YELLOW, "yellow"),
-        (BLUE, "blue"),
-        (RED, "red"),
-        (GREEN, "green"),
-        (ORANGE, "orange"),
-        (HAZEL, "hazel"),
-        (PINK, "pink"),
-        (GOLD, "gold"),
-        (PURPLE, "purple"),
-        (UNKNOWN, "unknown"),
+        (BLACK, "Black"),
+        (BROWN, "Brown"),
+        (YELLOW, "Yellow"),
+        (BLUE, "Blue"),
+        (RED, "Red"),
+        (GREEN, "Green"),
+        (ORANGE, "Orange"),
+        (HAZEL, "Hazel"),
+        (PINK, "Pink"),
+        (GOLD, "Gold"),
+        (PURPLE, "Purple"),
+        (WHITE, "White"),
+        (UNKNOWN, "Unknown"),
     )
 
     height = models.CharField(max_length=16, blank=True)
