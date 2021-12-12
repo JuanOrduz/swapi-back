@@ -14,10 +14,6 @@ class PlanetType(DjangoObjectType):
 
 
 class PeopleType(DjangoObjectType):
-    gender = graphene.Enum("PeopleGenderEnum", People.GENDER)
-    hair_color = graphene.Enum("PeopleHairColorEnum", People.HAIR_COLOR)
-    eye_color = graphene.Enum("PeopleEyeColorEnum", People.EYE_COLOR)
-
     class Meta:
         model = People
         interfaces = (graphene.relay.Node,)
@@ -27,7 +23,7 @@ class PeopleType(DjangoObjectType):
             "hair_color": ["exact"],
             "eye_color": ["exact"],
         }
-        convert_choices_to_enum = False
+        convert_choices_to_enum = True
 
 
 class DirectorType(DjangoObjectType):

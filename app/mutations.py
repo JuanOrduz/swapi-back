@@ -34,15 +34,25 @@ class UpdateCreatePlanetMutation(graphene.relay.ClientIDMutation):
 
 
 class CreatePeopleMutation(graphene.relay.ClientIDMutation):
+    # TODO: set actually choices for people gender, eye color and hair color
     class Input:
         name = graphene.String(required=True)
         height = graphene.String(required=False)
         mass = graphene.String(required=False)
-        gender = graphene.Enum("PeopleGenderEnum", People.GENDER)
-        hair_color = graphene.Enum("PeopleHairColorEnum", People.HAIR_COLOR)
+        gender = graphene.String(
+            required=False,
+            description=f"Choose a value in {[gender[0] for gender in People.GENDER]}",
+        )
+        hair_color = graphene.String(
+            required=False,
+            description=f"Choose a value in {[hair_color[0] for hair_color in People.HAIR_COLOR]}",
+        )
         skin_color = graphene.String(required=False)
         birth_year = graphene.String(required=False)
-        eye_color = graphene.Enum("PeopleEyeColorEnum", People.EYE_COLOR)
+        eye_color = graphene.String(
+            required=False,
+            description=f"Choose a value in {[eye_color[0] for eye_color in People.EYE_COLOR]}",
+        )
         home_world = graphene.ID(required=True)
         films = graphene.List(graphene.ID)
 
