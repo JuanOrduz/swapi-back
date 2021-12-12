@@ -33,7 +33,7 @@ class UpdateCreatePlanetMutation(graphene.relay.ClientIDMutation):
         return UpdateCreatePlanetMutation(planet=planet)
 
 
-class CreatePeopleMutation(graphene.relay.ClientIDMutation):
+class CreateUpdatePeopleMutation(graphene.relay.ClientIDMutation):
     class Input:
         id = graphene.ID(required=False)
         name = graphene.String(required=True)
@@ -51,10 +51,13 @@ class CreatePeopleMutation(graphene.relay.ClientIDMutation):
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, **input):
+        raw_id = input.pop("id", None)
         home_world = input.get("home_world", None)
         films = input.pop("films", None)
 
         data = {"model": People, "data": input}
+        if raw_id:
+            data["id"] = from_global_id(raw_id)[1]
         if home_world:
             data["data"]["home_world"] = Planet.objects.get(
                 id=from_global_id(home_world)[1],
@@ -65,4 +68,4 @@ class CreatePeopleMutation(graphene.relay.ClientIDMutation):
             }
 
         people = generic_model_mutation_process(**data)
-        return CreatePeopleMutation(people=people)
+        return CreateUpdatePeopleMutation(people=people)
