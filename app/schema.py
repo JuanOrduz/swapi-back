@@ -1,7 +1,11 @@
 import graphene
 from graphene_django.filter import DjangoFilterConnectionField
 
-from app.mutations import CreateUpdatePeopleMutation, UpdateCreatePlanetMutation
+from app.mutations import (
+    CreatePeopleMutation,
+    UpdateCreatePlanetMutation,
+    UpdatePeopleMutation,
+)
 from app.types import DirectorType, FilmType, PeopleType, PlanetType, ProducerType
 
 
@@ -24,4 +28,5 @@ class Query(graphene.ObjectType):
 
 class Mutation(graphene.ObjectType):
     update_create_planet_mutation = UpdateCreatePlanetMutation.Field()
-    create_update_people_mutation = CreateUpdatePeopleMutation.Field()
+    create_people_mutation = CreatePeopleMutation.Field()
+    update_people_mutation = UpdatePeopleMutation.Field()
