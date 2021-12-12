@@ -19,11 +19,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import RedirectView
 from graphene_django.views import GraphQLView
 
-from .schema import schema
+from swapi.schema import schema
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='graphql/')),
-    path('graphql/', csrf_exempt(GraphQLView.as_view(schema=schema))),
-    path('explore/', csrf_exempt(GraphQLView.as_view(schema=schema, graphiql=True))),
-    path('admin/', admin.site.urls),
+    path("", RedirectView.as_view(url="graphql/")),
+    path("graphql/", csrf_exempt(GraphQLView.as_view(schema=schema))),
+    path("explore/", csrf_exempt(GraphQLView.as_view(schema=schema, graphiql=True))),
+    path("admin/", admin.site.urls),
 ]
