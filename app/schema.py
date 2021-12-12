@@ -1,7 +1,7 @@
 import graphene
 from graphene_django.filter import DjangoFilterConnectionField
 
-from app.mutations import AddPlanetMutation
+from app.mutations import UpdateCreatePlanetMutation
 from app.types import DirectorType, FilmType, PeopleType, PlanetType, ProducerType
 
 
@@ -23,4 +23,4 @@ class Query(graphene.ObjectType):
 
 
 class Mutation(graphene.ObjectType):
-    add_planet_mutation = AddPlanetMutation.Field()
+    add_planet_mutation = UpdateCreatePlanetMutation.Field()
