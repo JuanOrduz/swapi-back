@@ -1,3 +1,5 @@
+from typing import List
+
 from django.db.models import Model
 
 
@@ -6,6 +8,7 @@ def generic_model_mutation_process(
     data: dict,
     id: int = None,
     commit: bool = True,
+    related_objects: List[int] = None,
 ) -> Model:
     """
     Updates or creates Django model object.
@@ -30,5 +33,9 @@ def generic_model_mutation_process(
 
     if commit:
         item.save()
+
+    if related_objects:
+        for key, objects in related_objects.items():
+            getattr(item, key).set(objects)
 
     return item
